@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Tabs, Button } from "antd";
 import banner from "../../../../public/pplImge.png";
-import { getAllProducts } from "../../../controller/productController";
+import { getAllProducts } from "../../../controller/ProductController";
 import Card from "../product/Card";
 
 const { TabPane } = Tabs;

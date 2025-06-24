@@ -3,7 +3,7 @@ import { AutoComplete, Input, Button } from "antd";
 import { HeartOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import { searchProducts } from "../../controller/productController";
+import { searchProducts } from "../../controller/ProductController";
 const { Search } = Input;
 
 const SearchField = () => {
