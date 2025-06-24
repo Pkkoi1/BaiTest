@@ -18,14 +18,20 @@ const Detail = () => {
       />
       <h2 className="text-2xl font-bold mb-2">{product.name}</h2>
       <div className="mb-2 text-gray-600">{product.brand}</div>
-      <div className="mb-2">{product.description}</div>
       <div className="mb-2">
-        <span className="text-lg font-semibold text-pink-700">
-          {product.price}₫
+        <textarea
+          className="w-full h-32 border rounded p-2"
+          value={product.description}
+          readOnly
+        />
+      </div>
+      <div className="mb-2">
+        <span className="text-lg font-semibold text-yellow-500">
+          ${product.price}
         </span>
         {product.isOnSale && (
           <span className="ml-2 line-through text-gray-400">
-            {product.originalPrice}₫
+            ${product.originalPrice}
           </span>
         )}
       </div>
