@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel, Tabs, Button } from "antd";
 import banner from "../../../../public/pplImge.png";
-import { popularProducts } from "../../../models/Product";
+import { getAllProducts } from "../../../controller/productController";
 import Card from "../product/Card";
 
 const { TabPane } = Tabs;
@@ -9,6 +9,13 @@ const { TabPane } = Tabs;
 const PopularList = () => {
   const carouselRef = React.useRef();
   const [carouselIndex, setCarouselIndex] = React.useState(0);
+
+  // Lấy danh sách sản phẩm từ controller
+  const [products, setProducts] = React.useState([]);
+
+  React.useEffect(() => {
+    setProducts(getAllProducts());
+  }, []);
 
   // Responsive: 2 sản phẩm trên 1 slide khi nhỏ hơn md, 4 trên md trở lên
   const [slidesToShow, setSlidesToShow] = React.useState(4);
@@ -30,7 +37,7 @@ const PopularList = () => {
   }, []);
 
   const dotCount =
-    Math.ceil((popularProducts.length - slidesToShow) / slidesToScroll) + 1;
+    Math.ceil((products.length - slidesToShow) / slidesToScroll) + 1;
 
   const goTo = (idx) => {
     if (carouselRef.current) {
@@ -91,7 +98,7 @@ const PopularList = () => {
               },
             ]}
           >
-            {popularProducts.map((product) => (
+            {products.map((product) => (
               <div key={product.id} className="flex justify-center">
                 <Card product={product} small />
               </div>
