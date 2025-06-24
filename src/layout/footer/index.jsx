@@ -1,6 +1,6 @@
 import FooterColumn from "./FooterColumn";
 import FooterBottom from "./FooterBottom";
-import FooterContact from "./footerContact";
+import FooterContact from "./FooterContact";
 
 const Footer = () => {
   return (
